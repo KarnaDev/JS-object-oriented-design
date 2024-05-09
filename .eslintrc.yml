@@ -1,0 +1,31 @@
+---
+
+# https://eslint.org/docs/user-guide/configuring#specifying-environments
+env: 
+  node: true
+
+extends:
+  - 'airbnb-base'
+
+parserOptions:
+  ecmaVersion: latest
+
+rules:
+  no-console: 0
+  import/extensions: off
+  no-underscore-dangle: [2, { "allow": ["__filename", "__dirname"] }] # разрешает подчёркивание в именах только для двух констант
+ 
+plugins:
+  - 'import'
+  - 'jest'
+
+
+ignorePatterns:
+  - "**/*.test.js"
+
+overrides:
+  - files:
+      - "**/*.test.js"
+    rules:
+      jest/expect-expect: "error"
+      jest/no-test-callback: "error"
